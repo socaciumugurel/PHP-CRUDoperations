@@ -1,15 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.10
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Aug 23, 2016 at 03:20 PM
--- Server version: 5.5.42
--- PHP Version: 7.0.8
+-- Host: 127.0.0.1
+-- Generation Time: Dec 12, 2016 at 04:22 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `phpcrud`
+-- Database: `time_tracker`
 --
 
 -- --------------------------------------------------------
@@ -31,16 +30,16 @@ CREATE TABLE `projects` (
   `project_id` int(11) NOT NULL,
   `title` text NOT NULL,
   `category` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `projects`
 --
 
 INSERT INTO `projects` (`project_id`, `title`, `category`) VALUES
-(1, 'Project 1 Test', 'Billable'),
-(2, 'Project 2 Test', 'Personal'),
-(3, 'Project 3 Test', 'Charity');
+(10, 'Make a website for a startup company', 'Billable'),
+(11, 'Help someone in need', 'Charity'),
+(12, 'Grow your personal and technical skills', 'Personal');
 
 -- --------------------------------------------------------
 
@@ -54,17 +53,18 @@ CREATE TABLE `tasks` (
   `title` text NOT NULL,
   `date` text NOT NULL,
   `time` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tasks`
 --
 
 INSERT INTO `tasks` (`task_id`, `project_id`, `title`, `date`, `time`) VALUES
-(1, 1, 'Task 1 Test', '7', 90),
-(2, 1, 'Task 2 Test', '7', 60),
-(3, 2, 'Task 3 Test', '8', 120),
-(4, 2, 'Task 4 Test', '8', 30);
+(18, 10, 'Look for a nice design', '2016-12-05', 40),
+(19, 10, 'Read the documentation', '2016-12-08', 40),
+(20, 10, 'Design the database', '2016-12-10', 65),
+(21, 11, 'Buy some grocery for someone', '2016-12-12', 35),
+(22, 12, 'Read a book about Leadership', '2016-12-13', 75);
 
 --
 -- Indexes for dumped tables
@@ -90,12 +90,12 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `project_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `task_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
